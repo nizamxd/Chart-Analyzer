@@ -1,0 +1,202 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Cinzel", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: contain;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    font-family: var(--font-sans);
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: contain;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-brand {
+  font-family: var(--font-display);
+}
+
+.font-numeric {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FCE79C 0%, #D4AF37 52%, #9A6F18 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-cta {
+  background: linear-gradient(135deg, #F5D061 0%, #D4AF37 55%, #B8860B 100%);
+  color: #070708;
+}
+
+.gold-cta:hover {
+  background: linear-gradient(135deg, #FCE79C 0%, #E0BC48 55%, #C59315 100%);
+}
+
+.trading-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(212, 175, 55, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 110px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes drawPath {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes candlePulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scaleY(0.86);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes splashFadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pageFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes candlePopIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-candle-pop {
+  opacity: 0;
+  animation: candlePopIn 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-draw-shape {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-draw-loop {
+  stroke-dasharray: 260;
+  animation: drawPath 1.6s ease-in-out infinite;
+}
+
+.animate-candle-rise {
+  transform-origin: bottom center;
+  animation: candlePulse 1.4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-splash-in {
+  animation: splashFadeScale 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-page-in {
+  animation: pageFadeSlide 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.smooth-mode .animate-candle-pop,
+.smooth-mode .animate-draw-shape,
+.smooth-mode .animate-draw-loop,
+.smooth-mode .animate-candle-rise,
+.smooth-mode .animate-splash-in,
+.smooth-mode .animate-page-in {
+  animation: none !important;
+  opacity: 1 !important;
+  stroke-dashoffset: 0 !important;
+}
+
+.smooth-mode * {
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-candle-pop,
+  .animate-draw-shape,
+  .animate-draw-loop,
+  .animate-candle-rise,
+  .animate-splash-in,
+  .animate-page-in {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}

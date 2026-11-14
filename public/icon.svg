@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="obsidianBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141418" />
+      <stop offset="55%" stop-color="#09090B" />
+      <stop offset="100%" stop-color="#040405" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE79C" />
+      <stop offset="45%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#9A6F18" />
+    </linearGradient>
+    <linearGradient id="goldSoft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D061" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#B8860B" stop-opacity="0.7" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#obsidianBg)" />
+  <rect x="18" y="18" width="476" height="476" rx="96" fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-opacity="0.7" />
+  <rect x="34" y="34" width="444" height="444" rx="82" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="2" />
+  <!-- Ascending gold breakout arc -->
+  <path d="M 102 362 Q 246 318 394 128" fill="none" stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round" stroke-opacity="0.45" />
+  <!-- Left candlestick -->
+  <line x1="148" y1="226" x2="148" y2="386" stroke="url(#goldSoft)" stroke-width="14" stroke-linecap="round" />
+  <rect x="122" y="262" width="52" height="84" rx="12" fill="url(#goldSoft)" />
+  <!-- Middle candlestick -->
+  <line x1="256" y1="168" x2="256" y2="352" stroke="url(#goldGrad)" stroke-width="14" stroke-linecap="round" />
+  <rect x="230" y="204" width="52" height="106" rx="12" fill="url(#goldGrad)" />
+  <!-- Right hero candlestick -->
+  <line x1="364" y1="106" x2="364" y2="296" stroke="#FCE79C" stroke-width="14" stroke-linecap="round" />
+  <rect x="338" y="142" width="52" height="110" rx="12" fill="url(#goldGrad)" stroke="#FCE79C" stroke-width="3" />
+</svg>

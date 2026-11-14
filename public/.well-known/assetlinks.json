@@ -1,0 +1,13 @@
+[
+  {
+    "_comment": "Replace package_name and sha256_cert_fingerprints with the values from PWABuilder so the Android app opens fullscreen without the browser address bar.",
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chartanalyzer.twa",
+      "sha256_cert_fingerprints": [
+        "YOUR_SHA256_FINGERPRINT_FROM_PWABUILDER"
+      ]
+    }
+  }
+]

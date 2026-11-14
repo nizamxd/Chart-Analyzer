@@ -1,0 +1,6 @@
+{
+  "name": "Chart Analyzer",
+  "description": "Intraday candlestick chart analyzer in simple Hinglish for Indian stock market beginners (NIFTY, BANKNIFTY, stocks).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
